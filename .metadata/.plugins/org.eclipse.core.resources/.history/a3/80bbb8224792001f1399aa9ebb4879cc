@@ -1,0 +1,151 @@
+package smartsofts.applicatif.elearning.service;
+
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
+import smartsofts.applicatif.elearning.dao.StudentRepository;
+import smartsofts.applicatif.elearning.entities.School;
+import smartsofts.applicatif.elearning.entities.Student;
+import smartsofts.applicatif.elearning.entities.StudentDTO;
+import smartsofts.applicatif.elearning.entities.StudentMapper;
+
+
+class MetierStudentsImpTest {
+
+	//1_wich service we want to test!
+	//4_informer framework de tests moquito d'injecter all dép nécessaires annotés par @Mock pour tester svc!
+	@InjectMocks
+	private MetierStudentsImp metierStudentsImp;
+
+	//2_declare the dependencies!   
+	//3_mocker dependencies!
+	@Mock
+	private StudentRepository studentRepository;
+
+	@Mock
+	private StudentMapper studentMapper;
+
+	//5_informer moquito de start mocks de cette classe à tester!
+	@BeforeEach
+	void setUp() {
+		MockitoAnnotations.openMocks(this);
+	}
+
+	/*6_tests!*/
+	//imp test méthode save student
+	@Test
+	public void should_successfully_save_student() {
+		//Given/Expected!
+		School school=new School(1L, null, 0, null);
+		StudentDTO studentDto = new StudentDTO(
+				1L, 
+				"KMED", 
+				"Elkanoun@gmail.com", 
+				"Mohamed", 
+				"El-kanoun", 
+				"salé", 
+				"0653627306",
+				"isi", 
+				"isi1", 
+				"essahel", 
+				school);
+		Student student = new Student(
+				1L, 
+				"KMED", 
+				"Elkanoun@gmail.com", 
+				"Mohamed", 
+				"El-kanoun", 
+				"salé", 
+				"0653627306",
+				"isi", 
+				"isi1", 
+				"essahel", 
+				school);
+		Student savedStudent = new Student(
+				1L, 
+				"KMED", 
+				"Elkanoun@gmail.com", 
+				"Mohamed", 
+				"El-kanoun", 
+				"salé", 
+				"0653627306",
+				"isi", 
+				"isi1", 
+				"essahel", 
+				school);
+
+		//Mock calls(when on see method when of Moquito it's a moquing of method)!
+		when(studentMapper.toStudent(studentDto))
+		        .thenReturn(student);
+		when(studentRepository.save(student))
+		        .thenReturn(savedStudent);
+		when(studentMapper.toStudentDTO(savedStudent))
+		        .thenReturn(new StudentDTO(
+				1L, 
+				"KMED", 
+				"Elkanoun@gmail.com", 
+				"Mohamed", 
+				"El-kanoun", 
+				"salé", 
+				"0653627306",
+				"isi", 
+				"isi1", 
+				"essahel", 
+				school));
+
+		//When(when on appel addStudent du svc on expecte un objet de type studentDto St)/Actual!
+		StudentDTO responseDTO = metierStudentsImp.addStudent(studentDto);
+
+		//Then(assertions tests)!
+		assertEquals(studentDto.getFirstname(), responseDTO.getFirstname());
+		assertEquals(studentDto.getLastname(), responseDTO.getLastname());
+		assertEquals(studentDto.getEmail(), responseDTO.getEmail());
+		
+		
+		verify(studentMapper, times(1)) //test performances api-operation passe 1temps!
+		        .toStudent(studentDto);
+		verify(studentRepository, times(1))
+		        .save(student);
+		verify(studentMapper, times(1))
+		        .toStudentDTO(savedStudent);
+	}
+	
+	//method test listStudents
+	public void should_return_all_students() {
+		//given-expected
+		List<Student> students = new ArrayList<>();
+		School school=new School(1L, null, 0, null);
+		students.add(new Student(
+				1L, 
+				"KMED", 
+				"Elkanoun@gmail.com", 
+				"Mohamed", 
+				"El-kanoun", 
+				"salé", 
+				"0653627306",
+				"isi", 
+				"isi1", 
+				"essahel", 
+				school));
+		
+		//mock calls
+		
+		//when-actual
+		
+		//then-assertions-performances
+	}
+
+
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="MetierStudentsImpTest" project="e-learning" tests="4" started="4" failures="1" errors="0" ignored="0">
+  <testsuite name="smartsofts.applicatif.elearning.service.MetierStudentsImpTest" time="1.301" displayname="MetierStudentsImpTest" uniqueid="[engine:junit-jupiter]/[class:smartsofts.applicatif.elearning.service.MetierStudentsImpTest]">
+    <testcase name="should_find_student_by_id" classname="smartsofts.applicatif.elearning.service.MetierStudentsImpTest" time="1.241" displayname="should_find_student_by_id()" uniqueid="[engine:junit-jupiter]/[class:smartsofts.applicatif.elearning.service.MetierStudentsImpTest]/[method:should_find_student_by_id()]"/>
+    <testcase name="should_return_student_by_username" classname="smartsofts.applicatif.elearning.service.MetierStudentsImpTest" time="0.006" displayname="should_return_student_by_username()" uniqueid="[engine:junit-jupiter]/[class:smartsofts.applicatif.elearning.service.MetierStudentsImpTest]/[method:should_return_student_by_username()]"/>
+    <testcase name="should_successfully_save_student" classname="smartsofts.applicatif.elearning.service.MetierStudentsImpTest" time="0.046" displayname="should_successfully_save_student()" uniqueid="[engine:junit-jupiter]/[class:smartsofts.applicatif.elearning.service.MetierStudentsImpTest]/[method:should_successfully_save_student()]">
+      <failure>org.mockito.exceptions.verification.TooManyActualInvocations: 
+studentRepository.save(
+    Student(id=1, username=KMED, email=Elkanoun@gmail.com, firstname=Mohamed, lastname=El-kanoun, address=salé, tel=0653627306, specialite=isi, numClasse=isi1, nomProf=essahel, school=School(id=1, nomSchool=null, nombreClasses=0, students=null))
+);
+Wanted 1 time:
+-&gt; at smartsofts.applicatif.elearning.service.MetierStudentsImpTest.should_successfully_save_student(MetierStudentsImpTest.java:121)
+But was 2 times:
+-&gt; at smartsofts.applicatif.elearning.service.MetierStudentsImp.addStudent(MetierStudentsImp.java:52)
+-&gt; at smartsofts.applicatif.elearning.service.MetierStudentsImp.addStudent(MetierStudentsImp.java:53)
+
+&#13;
+	at smartsofts.applicatif.elearning.service.MetierStudentsImpTest.should_successfully_save_student(MetierStudentsImpTest.java:121)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+&#13;
+</failure>
+    </testcase>
+    <testcase name="should_return_list_students" classname="smartsofts.applicatif.elearning.service.MetierStudentsImpTest" time="0.003" displayname="should_return_list_students()" uniqueid="[engine:junit-jupiter]/[class:smartsofts.applicatif.elearning.service.MetierStudentsImpTest]/[method:should_return_list_students()]"/>
+  </testsuite>
+</testrun>

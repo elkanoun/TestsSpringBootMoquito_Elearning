@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="StudentMapperTest" project="e-learning" tests="3" started="3" failures="0" errors="0" ignored="0">
+  <testsuite name="smartsofts.applicatif.elearning.entities.StudentMapperTest" time="0.046" displayname="StudentMapperTest" uniqueid="[engine:junit-jupiter]/[class:smartsofts.applicatif.elearning.entities.StudentMapperTest]">
+    <testcase name="shouldMapStudentDtoToStudent" classname="smartsofts.applicatif.elearning.entities.StudentMapperTest" time="0.04" displayname="shouldMapStudentDtoToStudent()" uniqueid="[engine:junit-jupiter]/[class:smartsofts.applicatif.elearning.entities.StudentMapperTest]/[method:shouldMapStudentDtoToStudent()]"/>
+    <testcase name="should_throw_nullPointerException_when_studentDTO_is_null" classname="smartsofts.applicatif.elearning.entities.StudentMapperTest" time="0.002" displayname="should_throw_nullPointerException_when_studentDTO_is_null()" uniqueid="[engine:junit-jupiter]/[class:smartsofts.applicatif.elearning.entities.StudentMapperTest]/[method:should_throw_nullPointerException_when_studentDTO_is_null()]"/>
+    <testcase name="shouldMapStudentToStudentDto" classname="smartsofts.applicatif.elearning.entities.StudentMapperTest" time="0.003" displayname="shouldMapStudentToStudentDto()" uniqueid="[engine:junit-jupiter]/[class:smartsofts.applicatif.elearning.entities.StudentMapperTest]/[method:shouldMapStudentToStudentDto()]"/>
+  </testsuite>
+</testrun>
